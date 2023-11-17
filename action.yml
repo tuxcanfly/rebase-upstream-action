@@ -47,7 +47,7 @@ runs:
 
         git config --add rebase.instructionFormat "%s%nexec GIT_COMMITTER_DATE=\"%cI\" GIT_COMMITTER_NAME=\"%cN\" GIT_COMMITTER_EMAIL=\"%cE\" git commit --amend --no-edit%n"
 
-        git rebase upstream/${{ inputs.branch }};
+        git rebase -i upstream/${{ inputs.branch }};
 
         if [ "${{ inputs.push }}" = "true" -a "$(git status | grep diverged)" ]; then
             git push origin $(git branch --show-current) --force-with-lease;

@@ -45,7 +45,7 @@ runs:
 
         git fetch upstream ${{ inputs.branch }} $DEPTH;
 
-        git config --add rebase.instructionFormat = "%s%nexec GIT_COMMITTER_DATE=\"%cI\" GIT_COMMITTER_NAME=\"%cN\" GIT_COMMITTER_EMAIL=\"%cE\" git commit --amend --no-edit%n"
+        git config --add rebase.instructionFormat "%s%nexec GIT_COMMITTER_DATE=\"%cI\" GIT_COMMITTER_NAME=\"%cN\" GIT_COMMITTER_EMAIL=\"%cE\" git commit --amend --no-edit%n"
 
         git rebase upstream/${{ inputs.branch }};
 
